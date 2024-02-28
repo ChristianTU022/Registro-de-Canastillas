@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Registro de Canastillas</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script>
+        function mostrarApartado() {
+            // Obtener el valor seleccionado en el select
+            var tipoCanastillas = document.getElementById("canastillas").value;
+
+            // Mostrar u ocultar la sección dependiendo del tipo de canastillas
+            var seccionCanastillasLavadas = document.getElementById("seccionCanastillasLavadas");
+            var seccionCanastillasRotas = document.getElementById("seccionCanastillasRotas");
+            
+            if (tipoCanastillas === "lavadas") {
+                seccionCanastillasLavadas.style.display = "block";
+                seccionCanastillasRotas.style.display = "none";
+            } else if (tipoCanastillas === "rotas") {
+                seccionCanastillasLavadas.style.display = "none";
+                seccionCanastillasRotas.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Registro de Canastillas</h1>
+    <form id="registroForm">
+        <div id="fechaSection">
+            <label for="fecha">Selecciona la Fecha en la que deseas Registrar las Canastillas</label>
+            <input type="date" id="fecha" name="fecha">
+        </div>
+        <div id="nombreSection">
+            <label for="nombreApellido">Escribe tu Nombre y Apellido: </label>
+            <input type="text" id="nombreApellido" name="nombreApellido">
+        </div>
+        <div id="canastillasSection">
+            <label for="canastillas">¿Qué Canastillas Deseas Registrar?</label>
+            <select id="canastillas" name="canastillas" onchange="mostrarApartado()">
+                <option value="lavadas">Canastillas Lavadas</option>
+                <option value="rotas">Canastillas Rotas</option>
+            </select>
+        </div>
+        <button type="button" onclick="mostrarApartado()">Registrar Canastillas</button>
+    </form>
+
+    <div id="seccionCanastillasLavadas" style="display: none;">
+        <h2 style="text-align: center;">Apartado Para Canastillas Lavadas</h2>
+        <p>Aquí podrás registrar las canastillas que han sido Lavadas.</p>
+        <div class="form-group">
+            <label for="canastillasLavadas">Por favor, ingresa los números de las canastillas Lavadas, separados por comas (','). Por ejemplo: 11, 623, 771, 409, 17, …etc.</label>
+            <input type="text" id="canastillasLavadas" name="canastillasLavadas">
+        </div>
+        <div class="form-group">
+            <label for="canastillasLavadasSN">Escribe el número de Canastillas Lavadas sin Marcar (SN)</label>
+            <input type="text" id="canastillasLavadasSN" name="canastillasLavadasSN">
+        </div>
+        <button type="button" onclick="mostrarApartado()">Cancelar</button>
+        <button id="enviarBtn" type="submit">Enviar</button>
+    </div>
+    
+    <!-- Sección para las canastillas rotas (inicialmente oculta) -->
+    <div id="seccionCanastillasRotas" style="display: none;">
+        <h2 style="text-align: center;">Apartado Para Canastillas Rotas</h2>
+        <p>Aquí podrás registrar las canastillas que se han Roto.</p>
+        <div class="form-group">
+            <label for="canastillasRotas">Por favor, ingresa los números de las canastillas Rotas, separados por comas (','). Por ejemplo: 11, 623, 771, 409, 17, …etc.</label>
+            <input type="text" id="canastillasRotas" name="canastillasRotas">
+        </div>
+        <div class="form-group">
+            <label for="canastillasRotasSN">Escribe el número de Canastillas Rotas sin Marcar (SN)</label>
+            <input type="text" id="canastillasRotasSN" name="canastillasRotasSN">
+        </div>
+        <button type="button" onclick="mostrarApartado()">Cancelar</button>
+        <button id="enviarBtn" type="submit">Enviar</button>
+    </div>
+</body>
+</html>
