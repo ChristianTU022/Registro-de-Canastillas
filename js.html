@@ -1,4 +1,35 @@
 <script>
+    function ingresarApartadoSeleccionado() {
+        var tipoIngreso = document.getElementById("ingreso").value;
 
-    
+        // Ocultar todos los elementos de las canastillas
+        document.getElementById("opcionesCanastillasLavadas").classList.add("hidden");
+        document.getElementById("opcionesCanastillasRotas").classList.add("hidden");
+
+        // Ocultar todos los elementos de los apartados
+        document.getElementById('opcionesLimpieza').classList.add('hidden');
+        document.getElementById('opcionesCalidad').classList.add('hidden');
+
+        // Mostrar el elemento correspondiente a la opción seleccionada
+        if (tipoIngreso === 'limpieza') {
+            document.getElementById('opcionesLimpieza').classList.remove('hidden');
+        } else if (tipoIngreso === 'calidad') {
+            document.getElementById('opcionesCalidad').classList.remove('hidden');
+        }
+    }
+
+    function ingresarApartadoTipoCanastillas() {
+        var tipoCanastillas = document.getElementById("tipoCanastillas").value;
+
+        // Oculta todas las opciones
+        document.getElementById("opcionesCanastillasLavadas").classList.add("hidden");
+        document.getElementById("opcionesCanastillasRotas").classList.add("hidden");
+
+        // Muestra las opciones correspondientes según la selección
+        if (tipoCanastillas === "Canastillas Lavadas") {
+            document.getElementById("opcionesCanastillasLavadas").classList.remove("hidden");
+        } else if (tipoCanastillas === "Canastillas Rotas") {
+            document.getElementById("opcionesCanastillasRotas").classList.remove("hidden");
+        }
+    }
 </script>

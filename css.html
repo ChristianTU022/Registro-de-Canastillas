@@ -7,13 +7,25 @@
         background-color: rgb(255, 252, 241);
     }
 
-    .welcome-text {
-        text-align: center;
-        font-size: 23px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-weight: bold;
+    main {
+        min-height: calc(100vh - 200px); /* ajusta la altura según sea necesario */
+        padding-bottom: 200px; /* para asegurar que haya espacio entre el contenido y el footer */
     }
+    .welcome-text {
+    text-align: center;
+    font-size: 23px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+    @media (min-width: 768px) {
+    .form-control,
+    .form-select {
+        max-width: 100%;
+        }
+    }
+
 
     .custom-button {
         background-color: #fde680;
@@ -21,6 +33,7 @@
         color: #000;
         width: 150px;
         font-size: 1.1em;
+        margin-right: 16px;
     }
 
     .custom-button:hover {
